@@ -1,0 +1,15 @@
+﻿  main.cpp
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(11): error C3551: if a trailing return type is used then the leading return type shall be the single type-specifier 'auto' (not 'const auto')
+  q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(23): note: see reference to class template instantiation 'LinkedList<T>::Cell' being compiled
+  q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(114): note: see reference to class template instantiation 'LinkedList<T>' being compiled
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(14): warning C4227: anachronism used: qualifiers on reference are ignored
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(14): error C3551: if a trailing return type is used then the leading return type shall be the single type-specifier 'auto' (not 'const auto')
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(17): warning C4227: anachronism used: qualifiers on reference are ignored
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(17): error C3551: if a trailing return type is used then the leading return type shall be the single type-specifier 'auto' (not 'const auto')
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(47): error C3613: missing return type after '->' ('int' assumed)
+  q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(50): note: see reference to class template instantiation 'LinkedList<T>::Iterator' being compiled
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(47): error C2143: syntax error: missing ';' before '&'
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(47): error C2059: syntax error: '&'
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(47): error C2238: unexpected token(s) preceding ';'
+q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(82): error C2535: 'LinkedList<T>::LinkedList(void)': member function already defined or declared
+  q:\entropy\doc\arbeit\c++\cpp17_by_example\list\list\list.h(79): note: see declaration of 'LinkedList<T>::LinkedList'
