@@ -8,13 +8,13 @@ private:
 		Cell(const T& value, Cell *previous, Cell *next);
 
 	public:
-		const auto value() -> T const { return m_value; }
+		auto value() const -> const T { return m_value; }
 		auto value() -> T { return m_value; }
 
-		const auto next() -> Cell*& const { return m_next; }
+		auto next() const -> const  Cell*& { return m_next; }
 		auto next() -> Cell*& { return m_next; }
 
-		const auto previous() -> Cell*& const { return m_previous; }
+		auto previous() const -> const Cell*& { return m_previous; }
 		auto previous() -> Cell*& { return m_previous; }
 
 		friend class LinkedList;
@@ -44,7 +44,7 @@ public:
 		auto operator--(int) -> bool;                            // postfix: i--
 
 		auto operator*() const -> T;
-		auto operator*() -> &T;
+		auto operator*() -> T&;
 
 	private:
 		Cell *m_cellPtr;
