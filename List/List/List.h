@@ -27,24 +27,26 @@ private:
 public:
 	class Iterator {
 	public: 
-		Iterator();
+		Iterator() : m_cellPtr(nullptr) { }
 
 	private:
-		Iterator(Cell *cellPtr);
+		Iterator(Cell *cellPtr) : m_cellPtr(cellptr) { }
 
 	public:
-		Iterator(const Iterator& Iterator);
+		Iterator(const Iterator& iterator) : m_cellPtr(iterator.m_cellPtr) { }
 
-		auto operator==(const Iterator& iterator) -> Iterator&;
-		auto operator==(const Iterator& iterator) -> bool;
-		auto operator!=(const Iterator& iterator) -> bool;
+		auto operator=(const Iterator& iterator) -> Iterator& {  return Iterator(iterator.m_cellPtr); }
+		auto operator==(const Iterator& iterator) -> bool { return m_cellPtr == iterator.m_cellPtr; }
+		auto operator==(const bool boolean) -> bool { return (m_cellPtr != nullptr) == boolean; }
+		auto operator!=(const Iterator& iterator) -> bool { return m_cellPtr != iterator.m_cellPtr; }
+		
 		auto operator++() -> bool;                               // prefix: ++i
 		auto operator++(int) -> bool;                            // postfix: i++
 		auto operator--() -> bool;                               // prefix: --i
 		auto operator--(int) -> bool;                            // postfix: i--
 
-		auto operator*() const -> T;
-		auto operator*() -> T&;
+		auto operator*() const -> T { return m_cellPtr->value(); }
+		auto operator*() -> T& { return m_cellPtr->value(); }
 
 	private:
 		Cell *m_cellPtr;
@@ -79,7 +81,7 @@ public:
 	LinkedList();
 	LinkedList(const LinkedList& list);
 	LinkedList& operator=(const LinkedList& list);
-	LinkedList();
+	~LinkedList();
 	void clear();
 
 	auto size() const -> int { return m_size; }
@@ -112,3 +114,12 @@ private:
 	int m_size;
 	Cell *m_firstCellPtr, *m_lastCellPtr;
 };
+
+template <class T>
+//typename LinkedList<T>
+LinkedList<T>::Cell::Cell(const T& value, Cell *previous, Cell *next)
+{
+	m_value = value;
+	m_previous = previous;
+	m_next = next;
+}

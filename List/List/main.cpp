@@ -7,6 +7,6 @@ using namespace std;
 
 int main(void)
 {
-	cout << "### FINISHED ###";
+	cout << "### FINISHED ###" << endl;
 	return EXIT_SUCCESS;
 }
