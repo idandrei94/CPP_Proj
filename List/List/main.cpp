@@ -10,7 +10,6 @@ int main(void)
 	LinkedList<double> list;
 	list.add(8);
 	LinkedList<double> list2 = list;
-	list2 = list;
 	for (int i = 1; i <= 10; ++i)
 	{
 		list.add(i);
