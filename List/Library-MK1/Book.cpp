@@ -35,8 +35,8 @@ void Book::unreserveBook(int customerID)
 
 auto operator<<(std::ostream& outStream, const Book& book)->std::ostream&
 {
-	outStream << "Title: " << book.title() << " by " << book.author() << std::endl;
-	outStream << " Status: " << (book.borrowed() ? "Borrowed by " : "Available") << (book.borrowed() ? Library::s_customerMap[book.m_customerId].name() : "");
+	outStream << "Title: \"" << book.title() << "\" by " << book.author() << std::endl;
+	outStream << "   Status: " << (book.borrowed() ? "Borrowed by " : "Available") << (book.borrowed() ? Library::s_customerMap[book.m_customerId].name() : "");
 	return outStream;
 }
 
@@ -70,12 +70,16 @@ void Book::read(std::ifstream& inStream)
 	{
 		inStream.read((char*)&m_customerId, sizeof m_customerId);
 	}
-	int reserveSize;
+	size_t reserveSize;
 	inStream.read((char*)& reserveSize, sizeof reserveSize);
 	for (int i = 0; i < reserveSize; ++i)
 	{
 		int customerId; 
 		inStream.read((char*)& customerId, sizeof customerId);
 		m_reservationList.push_back(customerId);
+	}
+	if (m_bookID >= Book::ID_MAX)
+	{
+		Book::ID_MAX = m_bookID + 1;
 	}
 }

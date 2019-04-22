@@ -1,5 +1,7 @@
 #pragma once
 #include <set>
+#include <fstream>
+#include <string>
 
 class Customer
 {
