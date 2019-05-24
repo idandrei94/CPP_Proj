@@ -10,10 +10,10 @@ Clock::Clock(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("Clock");
-    resize(1000,500);
+    resize(600,600);
     m_timer.setParent(this);
     connect(&m_timer, SIGNAL(timeout()), this, SLOT(update()));
-    m_timer.start(100);
+    m_timer.start(13);
 }
 
 void Clock::paintEvent(QPaintEvent *eventPtr)
@@ -56,7 +56,7 @@ void Clock::paintEvent(QPaintEvent *eventPtr)
         QPoint(0, -70)
     };
     painter.save();
-    double minute = minutes + (seconds / 3600.0) + (milliseconds / 3600000.0);
+    double minute = minutes + (seconds / 60.0) + (milliseconds / 60000.0);
     painter.rotate(6.0 * minute);
     painter.drawPolygon(minuteHand, 3);
     painter.restore();
@@ -67,19 +67,12 @@ void Clock::paintEvent(QPaintEvent *eventPtr)
         QPoint(0, -80)
     };
     painter.save();
-    double second = seconds + (milliseconds / 360000.0);
+    double second = seconds + (milliseconds / 1000.0);
     painter.rotate(6.0 * second);
     painter.drawPolygon(secondHand, 3);
     painter.restore();
 
     painter.save();
-    static const QPoint middleNose[4] = {
-        QPoint(-10,-10),
-        QPoint(10, -10),
-        QPoint(10, 10),
-        QPoint(-10, 10)
-    };
-    //painter.drawPolygon(middleNose, 4);
     painter.drawEllipse(QPoint(), 11, 11);
     painter.restore();
 }

@@ -25,11 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        documentwidget.cpp \
         main.cpp \
-        clock.cpp
+        clock.cpp \
+        mainwindow.cpp
 
 HEADERS += \
-        clock.h
+        clock.h \
+        documentwidget.h \
+        listener.h \
+        mainwindow.h
 
 FORMS += \
         clock.ui
